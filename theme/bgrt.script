@@ -5,7 +5,7 @@ bgrt_image = Image("bgrt.png");
 # Create a sprite of the BGRT
 bgrt_sprite = Sprite(bgrt_image);
 
-bgrt_sprite.SetPosition($BGRTLEFT$, $BGRTTOP$, 1);
+bgrt_sprite.SetPosition(687, 259, 1);
 
 # Add your code here
 

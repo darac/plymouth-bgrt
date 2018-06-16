@@ -29,7 +29,8 @@ convert /sys/firmware/acpi/bgrt/image theme/bgrt.png
 # Finally, install the theme
 
 install -d ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}
-install -m644 theme/bgrt.{plymouth,script,png} ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
+install -m644 theme/plymouth-bgrt.plymouth ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
+install -m644 theme/bgrt.{script,png} ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
 install -m644 theme/{box,bullet,entry,lock,progress_{bar,box}}.png ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
 
 echo "Install complete."
