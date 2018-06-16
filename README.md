@@ -10,6 +10,10 @@ A theme for plymouth which uses your system's UEFI logo (aka BGRT).
     sudo plymouth-set-default-theme -R plymouth-bgrt
 ```
 
+## GRUB Theme
+
+You may also want to pair this with my [GRUB theme](/darac/grub-bgrt).
+
 ## License
 
 All the files in this project are distributed under the [GNU General Public License](./LICENSE).
