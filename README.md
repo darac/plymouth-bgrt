@@ -12,7 +12,7 @@ A theme for plymouth which uses your system's UEFI logo (aka BGRT).
 
 ## GRUB Theme
 
-You may also want to pair this with my [GRUB theme](/darac/grub-bgrt).
+You may also want to pair this with my [GRUB theme](https://github.com/darac/grub-bgrt).
 
 ## License
 
