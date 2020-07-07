@@ -33,6 +33,9 @@ install -m644 theme/plymouth-bgrt.plymouth ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
 install -m644 theme/bgrt.{script,png} ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
 install -m644 theme/{box,bullet,entry,lock,progress_{bar,box}}.png ${PLYMOUTH_DIR}/${PLYMOUTH_THEME}/
 
+[ -d /lib/lsb/init-functions.d ] && install -m644 scripts/init-functions /lib/lsb/init-functions.d/999-bgrt
+[ -d /etc/initramfs-tools/hooks ] && install -m755 scripts/initramfs-hook /etc/initramfs-tools/hooks/bgrt-fonts
+
 echo "Install complete."
 echo "To use this theme, run as root:"
 echo "	plymouth-set-default-theme -R ${PLYMOUTH_THEME}"

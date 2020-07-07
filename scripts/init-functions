@@ -1,0 +1,40 @@
+# 
+
+if ! plymouth --ping > /dev/null 2>&1
+then
+	return
+fi
+
+log_daemon_msg_post () {
+	# Starting/Stopping a daemon
+	/bin/plymouth update --status="[start]${@}" || true
+}
+
+log_begin_msg_post () {
+	/bin/plymouth update --status="[...]${@}" || true
+}
+
+log_action_msg_post () {
+	# Log an atomic action
+	/bin/plymouth update --status="[info]${@}" || true
+}
+
+log_action_begin_msg_post () {
+	/bin/plymouth update --status="[...]${@}" || true
+}
+
+log_end_msg_post () {
+	# End of daemon. The status value is written after the text (e.g. [status]255, so we can choose GOOD, WARN or FAIL.
+	/bin/plymouth update --status="[status]${@}" || true
+}
+
+log_action_end_msg_post () {
+	# Log the end of an action
+	local end
+	end="${2:-}"
+	if [ $1 -eq 0 ]; then
+		/bin/plymouth update --status="[done]${end}" || true
+	else
+		/bin/plymouth update --status="[fail]${end}" || true
+	fi
+}

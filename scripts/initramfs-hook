@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+PREREQ=""
+
+prereqs()
+{
+	echo "${PREREQ}"
+}
+
+case "${1}" in
+	prereqs)
+		prereqs
+		exit 0
+		;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+FONTS="
+Exo Regular
+Quicksand Medium
+"
+
+while read -r font; do
+	for line in $(fc-list :fullname="${font}" file | sed -e 's/:\s*$//'); do
+		mkdir -p "${DESTDIR}$(dirname "${line}")"
+		cp -a "${line}" "${DESTDIR}$(dirname "${line}")"
+	done
+done <<EOF
+$FONTS
+EOF
