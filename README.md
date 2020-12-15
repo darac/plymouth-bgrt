@@ -3,6 +3,10 @@
 
 A theme for plymouth which uses your system's UEFI logo (aka BGRT).
 
+## DEPRECATION WARNING
+
+Note: Many Linux Distributions are now shipping a `bgrt` theme which uses the `two-step` module. This module is able to read the BGRT image at run-time and is better supported than this script. Consider switching to `bgrt` instead of `plymouth-bgrt`.
+
 ## Installation
 
 ```sh
